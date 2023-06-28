@@ -5,7 +5,7 @@ import pickle
 
 
 def run():
-    img1 = Image.open('C:\Renjini\Data Science MS\DSC-580 Designing and Creating Data Products\Assignment_4\images.jpg')
+    img1 = Image.open('images.jpg')
     st.image(img1, use_column_width=False)
     st.title("Credit card Prediction using Machine Learning")
 
