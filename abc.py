@@ -9,6 +9,8 @@ def run():
     st.image(img1, use_column_width=False)
     st.title("Credit card Prediction using Machine Learning")
 
+    st.tabs('First','Second','Third')
+
     ## Account No
     account_no = st.text_input('Account Number')
 
