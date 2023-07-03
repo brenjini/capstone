@@ -8,7 +8,8 @@ def run():
     st.image(img1, use_column_width=False)
     st.title("Credit card Prediction using Machine Learning")
     file1 = open("test.txt", "r")
-    filecontent = file1.readlines()
+    filecontent = 'Test'
+    #file1.readlines()
     file1.close()
 
 
