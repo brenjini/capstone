@@ -7,6 +7,7 @@ def run():
     img1 = Image.open('images.jpg')
     st.image(img1, use_column_width=False)
     st.title("Credit card Prediction using Machine Learning")
+    file1 = open("test.txt", "r")
 
 
 tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
@@ -110,6 +111,6 @@ with tab3:
     family = st.selectbox("No.of Family Members", options, format_func=lambda x: cnt_fammembers[x])
 
     if st.button("Submit"):
-        st.success("Success.")
+        st.success(file1)
 
 run()
