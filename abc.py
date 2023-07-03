@@ -8,22 +8,10 @@ def run():
     st.image(img1, use_column_width=False)
     st.title("Credit card Prediction using Machine Learning")
     file1 = open("test.txt", "r")
+    filecontent = file1.readlines()
+    file1.close()
 
-'''
-tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
 
-with tab1:
-    st.header("A cat")
-    st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
-
-with tab2:
-    st.header("A dog")
-    st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
-
-with tab3:
-    st.header("An owl")
-    st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
-'''
 # Account No
 account_no = st.text_input('Account Number')
 
@@ -111,6 +99,6 @@ options = list(range(len(cnt_fammembers)))
 family = st.selectbox("No.of Family Members", options, format_func=lambda x: cnt_fammembers[x])
 
 if st.button("Submit"):
-    st.success(print(file1))
+    st.success(print(filecontent))
 
 run()
