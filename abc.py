@@ -100,6 +100,6 @@ options = list(range(len(cnt_fammembers)))
 family = st.selectbox("No.of Family Members", options, format_func=lambda x: cnt_fammembers[x])
 
 if st.button("Submit"):
-    st.success(print(filecontent))
+    st.success(filecontent)
 
 run()
