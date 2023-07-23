@@ -7,10 +7,8 @@ def run():
     img1 = Image.open('images.jpg')
     st.image(img1, use_column_width=False)
     st.title("Credit card Prediction using Machine Learning")
-    file1 = open("test.txt", "r")
-    filecontent1 = "Test"
-    #file1.readlines()
-    file1.close()
+
+    loaded_model = pickle.load(open('C:\\Users\\Renju\\PycharmProjects\\pythonProject31\\trained model.sav', 'rb'))
 
 
 # Account No
@@ -100,6 +98,7 @@ options = list(range(len(cnt_fammembers)))
 family = st.selectbox("No.of Family Members", options, format_func=lambda x: cnt_fammembers[x])
 
 if st.button("Submit"):
-    st.success(filecontent1)
+   
+    st.success("Success")
 
 run()
