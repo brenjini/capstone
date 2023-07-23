@@ -8,7 +8,7 @@ def run():
     st.image(img1, use_column_width=False)
     st.title("Credit card Prediction using Machine Learning")
 
-    #loaded_model = pickle.load(open('trained_model.sav', 'rb'))
+    loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 
 # Account No
