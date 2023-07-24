@@ -11,6 +11,7 @@ def run():
 
     
 
+loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 # Account No
 account_no = st.text_input('Account Number')
@@ -100,7 +101,6 @@ family = st.selectbox("No.of Family Members", options, format_func=lambda x: cnt
 
 if st.button("Submit"):
 
-    loaded_model = pickle.load(open('trained_model.sav', 'rb'))
     input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     input_data_as_numpy_array = np.asarray(input_data)
     input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
