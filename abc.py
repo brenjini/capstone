@@ -106,7 +106,13 @@ if st.button("Submit"):
     input_data_as_numpy_array = np.asarray(input_data)
     input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
     prediction = loaded_model.predict(input_data_reshaped)
-    st.success(prediction[0])
+
+    if (prediction[0] == 0):
+      st.success(" Credit card is approved")
+    else:
+      st.success("Credit card is not approved")
+
+    #st.success(prediction[0])
 
    
 run()
