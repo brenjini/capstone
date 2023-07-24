@@ -103,7 +103,10 @@ options = list(range(len(cnt_fammembers)))
 family = st.selectbox("No.of Family Members", options, format_func=lambda x: cnt_fammembers[x])
 
 if st.button("Submit"):
-   
-    st.success(prediction)
 
+if (prediction[0] == 0):
+    st.success(" Credit card is approved")
+else:
+   st.success("Credit card is not approved")
+   
 run()
