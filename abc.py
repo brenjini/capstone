@@ -9,7 +9,7 @@ def run():
     st.title("Credit card Prediction using Machine Learning")
 
     loaded_model = pickle.load(open('trained_model.sav', 'rb'))
-    #input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
+    input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
 
 
 # Account No
