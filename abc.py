@@ -9,11 +9,7 @@ def run():
     st.image(img1, use_column_width=False)
     st.title("Credit card Prediction using Machine Learning")
 
-    loaded_model = pickle.load(open('trained_model.sav', 'rb'))
-    input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
-    input_data_as_numpy_array = np.asarray(input_data)
-    input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-    prediction = loaded_model.predict(input_data_reshaped)
+    
 
 
 # Account No
@@ -103,7 +99,13 @@ options = list(range(len(cnt_fammembers)))
 family = st.selectbox("No.of Family Members", options, format_func=lambda x: cnt_fammembers[x])
 
 if st.button("Submit"):
-     st.success(account_no)
+
+    loaded_model = pickle.load(open('trained_model.sav', 'rb'))
+    input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
+    input_data_as_numpy_array = np.asarray(input_data)
+    input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
+    prediction = loaded_model.predict(input_data_reshaped)
+    st.success(prediction[0])
 
    
 run()
