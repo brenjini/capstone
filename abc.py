@@ -12,8 +12,8 @@ def run():
 #declaring all variables
 AMT_INCOME_TOTAL = 0
 FLAG_WORK_PHONE	= 0
-FLAG_PHONE = 0
-WORKTERM = 0
+FLAG_LAND_PHONE = 0
+YEARS_OF_EMPLOYMENT = 0
 CODE_GENDER_F = False
 FLAG_OWN_REALTY_N = False
 NAME_INCOME_TYPE_COMM_ASSOCIATE  = False
@@ -44,8 +44,8 @@ full_name = st.text_input('Full Name')
 
 # For CODE_GENDER(1)
 gen_display = ('Female', 'Male')
-options = list(range(len(gen_display)))
-gen = st.selectbox("Gender", options, format_func=lambda x: gen_display[x])
+options = list(True,False)
+CODE_GENDER_F = st.selectbox("Gender", options, format_func=lambda x: gen_display[x])
 
 
 # for FLAG_OWN_REALTY(2)
@@ -78,18 +78,18 @@ housing = st.selectbox("Housing Type", options, format_func=lambda x: housing_ty
 
 
 # YEARS_EMPLOYED(21)
-days_employed = st.number_input("Days of Employed", value=0)
+YEARS_OF_EMPLOYMENT = st.number_input("Years of employment", value=0)
 
 
 # FLAG_WORK_PHONE(22)
 own_workphone = ('Yes', 'No')
 options = list(range(len(own_workphone)))
-FLAG_WORK_PHONE = st.selectbox("Own_WorkPhone", options, format_func=lambda x: own_workphone[x])
+FLAG_WORK_PHONE = st.selectbox("Do you have work phone", options, format_func=lambda x: own_workphone[x])
 
 # FLAG_PHONE(23)
-own_phone = ('0', '1')
+own_phone = ('Yes', 'No')
 options = list(range(len(own_phone)))
-phone = st.selectbox("Own_Phone", options, format_func=lambda x: own_phone[x])
+FLAG_LAND_PHONE = st.selectbox("Do you have land phone", options, format_func=lambda x: own_phone[x])
 
 
 if st.button("Submit"):
@@ -98,6 +98,11 @@ if st.button("Submit"):
        FLAG_WORK_PHONE = 1
     else:
        FLAG_WORK_PHONE = 0
+
+    if(FLAG_LAND_PHONE == 0):
+       FLAG_LAND_PHONE = 1
+    else:
+       FLAG_LAND_PHONE = 0
     
     #input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     input_data =(157500.0, 0, 1, 3, True, False, False, True, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
@@ -110,7 +115,7 @@ if st.button("Submit"):
     else:
       st.success(full_name+declined_message)
 
-    st.success(FLAG_WORK_PHONE)
+    st.success(CODE_GENDER_F)
 
    
 run()
