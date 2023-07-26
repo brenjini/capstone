@@ -54,7 +54,7 @@ options = list(range(len(own_realty)))
 realty = st.selectbox("Own_Realty", options, format_func=lambda x: own_realty[x])
 
 # AMT_INCOME_TOTAL(3)
-mon_income = st.number_input("Applicant's Monthly Income($)", value=0)
+AMT_INCOME_TOTAL = st.number_input("Applicant's Monthly Income($)", value=0)
 
 # NAME_INCOME_TYPE(4-7)
 income_type = ('Working', 'Commercial associate', 'Pensioner', 'State servant')
@@ -105,7 +105,7 @@ if st.button("Submit"):
     else:
       st.success(full_name+declined_message)
 
-    st.success(housing)
+    st.success(AMT_INCOME_TOTAL)
 
    
 run()
