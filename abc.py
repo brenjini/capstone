@@ -120,7 +120,7 @@ if st.button("Submit"):
        NAME_INCOME_TYPE_PENSIONER = True
     elif(income == 2):
        NAME_INCOME_TYPE_STATE_SERVANT = True
-    else(income == 3):
+    else:
        NAME_INCOME_TYPE_STUDENT = True
 ####################################
     
