@@ -9,7 +9,31 @@ def run():
     st.image(img1, use_column_width=False)
     st.title("Credit card Prediction using Machine Learning")
 
-    
+#declaring all variables
+AMT_INCOME_TOTAL = 0
+FLAG_WORK_PHONE	= 0
+FLAG_PHONE = 0
+WORKTERM = 0
+CODE_GENDER_F = false
+FLAG_OWN_REALTY_N = false
+NAME_INCOME_TYPE_Commercial associate  = false
+NAME_INCOME_TYPE_Pensioner = false
+NAME_INCOME_TYPE_State servant = false
+NAME_INCOME_TYPE_Student = false
+NAME_EDUCATION_TYPE_Academic degree = false
+NAME_EDUCATION_TYPE_Higher education = false
+NAME_EDUCATION_TYPE_Incomplete higher = false
+NAME_EDUCATION_TYPE_Lower secondary = false
+NAME_FAMILY_STATUS_Civil marriage = false
+NAME_FAMILY_STATUS_Married = false
+NAME_FAMILY_STATUS_Separated = false
+NAME_FAMILY_STATUS_Single = false
+NAME_HOUSING_TYPE_SHARE_APT = false
+NAME_HOUSING_TYPE_HOUSE_APT = false
+NAME_HOUSING_TYPE_MUNICIPAL_APT = false
+NAME_HOUSING_TYPE_OFFICE_APT = false
+NAME_HOUSING_TYPE_RENTED_APT = false
+
 approved_message = ", your Credit card application is approved"
 declined_message = ", your Credit card application not approved"
 loaded_model = pickle.load(open('trained_model.sav', 'rb'))
