@@ -43,9 +43,9 @@ loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 full_name = st.text_input('Full Name')
 
 # For CODE_GENDER(1)
-gen_display = ('Female', 'Male')
-options = list(True,False)
-CODE_GENDER_F = st.selectbox("Gender", options, format_func=lambda x: gen_display[x])
+gen_display = ('Male', 'Female')
+options = list(range(len(gen_display)))
+gen = st.selectbox("Gender", options, format_func=lambda x: gen_display[x])
 
 
 # for FLAG_OWN_REALTY(2)
@@ -103,6 +103,11 @@ if st.button("Submit"):
        FLAG_LAND_PHONE = 1
     else:
        FLAG_LAND_PHONE = 0
+
+    if(gen == 0):
+       CODE_GENDER_F = False
+    else:
+       CODE_GENDER_F = True
     
     #input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     input_data =(157500.0, 0, 1, 3, True, False, False, True, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
