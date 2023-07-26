@@ -82,9 +82,9 @@ days_employed = st.number_input("Days of Employed", value=0)
 
 
 # FLAG_WORK_PHONE(22)
-own_workphone = ('0', '1')
+own_workphone = ('Yes', 'No')
 options = list(range(len(own_workphone)))
-workphone = st.selectbox("Own_WorkPhone", options, format_func=lambda x: own_workphone[x])
+FLAG_WORK_PHONE = st.selectbox("Own_WorkPhone", options, format_func=lambda x: own_workphone[x])
 
 # FLAG_PHONE(23)
 own_phone = ('0', '1')
@@ -94,6 +94,11 @@ phone = st.selectbox("Own_Phone", options, format_func=lambda x: own_phone[x])
 
 if st.button("Submit"):
 
+    if(FLAG_WORK_PHONE == 0):
+       FLAG_WORK_PHONE = 1
+    else:
+       FLAG_WORK_PHONE = 0
+    
     #input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     input_data =(157500.0, 0, 1, 3, True, False, False, True, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     input_data_as_numpy_array = np.asarray(input_data)
@@ -105,7 +110,7 @@ if st.button("Submit"):
     else:
       st.success(full_name+declined_message)
 
-    st.success(AMT_INCOME_TOTAL)
+    st.success(FLAG_WORK_PHONE)
 
    
 run()
