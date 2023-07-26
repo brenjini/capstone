@@ -10,8 +10,8 @@ def run():
     st.title("Credit card Prediction using Machine Learning")
 
     
-approved_message = " your Credit card application is approved"
-declined_message = " your Credit card application not approved"
+approved_message = ", your Credit card application is approved"
+declined_message = ", your Credit card application not approved"
 loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 
@@ -81,7 +81,7 @@ if st.button("Submit"):
     else:
       st.success(full_name+declined_message)
 
-    #st.success(prediction[0])
+    st.success(housing)
 
    
 run()
