@@ -15,11 +15,11 @@ FLAG_WORK_PHONE	= 0
 FLAG_LAND_PHONE = 0
 YEARS_OF_EMPLOYMENT = 0
 CODE_GENDER_F = False
-FLAG_OWN_REALTY_N = False
+FLAG_OWN_REALTY = False
 NAME_INCOME_TYPE_COMM_ASSOCIATE  = False
 NAME_INCOME_TYPE_PENSIONER = False
 NAME_INCOME_TYPE_STATE_SERVANT = False
-NAME_INCOME_TYPE_Student = False
+NAME_INCOME_TYPE_STUDENT = False
 NAME_EDUCATION_TYPE_ACADEMIC_DEGREE = False
 NAME_EDUCATION_TYPE_HIGHER_EDU = False
 NAME_EDUCATION_TYPE_INCOMPLETE_HIGHER_EDU = False
@@ -49,15 +49,15 @@ gen = st.selectbox("Gender", options, format_func=lambda x: gen_display[x])
 
 
 # for FLAG_OWN_REALTY(2)
-own_realty = ('Y', 'N')
+own_realty = ('Yes', 'No')
 options = list(range(len(own_realty)))
-realty = st.selectbox("Own_Realty", options, format_func=lambda x: own_realty[x])
+realty = st.selectbox("Do you own realty", options, format_func=lambda x: own_realty[x])
 
 # AMT_INCOME_TOTAL(3)
 AMT_INCOME_TOTAL = st.number_input("Applicant's Monthly Income($)", value=0)
 
 # NAME_INCOME_TYPE(4-7)
-income_type = ('Working', 'Commercial associate', 'Pensioner', 'State servant')
+income_type = ('Commercial associate', 'Pensioner', 'State servant', 'Student')
 options = list(range(len(income_type)))
 income = st.selectbox("Type of Income", options, format_func=lambda x: income_type[x])
 
@@ -98,16 +98,31 @@ if st.button("Submit"):
        FLAG_WORK_PHONE = 1
     else:
        FLAG_WORK_PHONE = 0
-
+####################################
     if(FLAG_LAND_PHONE == 0):
        FLAG_LAND_PHONE = 1
     else:
        FLAG_LAND_PHONE = 0
-
+####################################
     if(gen == 0):
        CODE_GENDER_F = False
     else:
        CODE_GENDER_F = True
+####################################
+    if(realty == 0):
+       FLAG_OWN_REALTY = True
+    else:
+       CODE_GENDER_F = False
+####################################
+    if(income == 0):
+       NAME_INCOME_TYPE_COMM_ASSOCIATE = True
+    elif(income == 1):
+       NAME_INCOME_TYPE_PENSIONER = True
+    elif(income == 2):
+       NAME_INCOME_TYPE_STATE_SERVANT = True
+    else(income == 3):
+       NAME_INCOME_TYPE_STUDENT = True
+####################################
     
     #input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     input_data =(157500.0, 0, 1, 3, True, False, False, True, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
@@ -120,7 +135,10 @@ if st.button("Submit"):
     else:
       st.success(full_name+declined_message)
 
-    st.success(CODE_GENDER_F)
+    st.success(NAME_INCOME_TYPE_COMM_ASSOCIATE)
+    st.success(NAME_INCOME_TYPE_PENSIONER)
+    st.success(NAME_INCOME_TYPE_STATE_SERVANT)
+    st.success(NAME_INCOME_TYPE_STUDENT)
 
    
 run()
