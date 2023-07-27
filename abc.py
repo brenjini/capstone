@@ -42,19 +42,32 @@ loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 # Full Name
 full_name = st.text_input('Full Name')
 
+
+# AMT_INCOME_TOTAL(3)
+AMT_INCOME_TOTAL = st.number_input("Applicant's Monthly Income($)", value=0)
+
+# FLAG_WORK_PHONE(22)
+own_workphone = ('Yes', 'No')
+options = list(range(len(own_workphone)))
+FLAG_WORK_PHONE = st.selectbox("Do you have work phone", options, format_func=lambda x: own_workphone[x])
+
+# FLAG_PHONE(23)
+own_phone = ('Yes', 'No')
+options = list(range(len(own_phone)))
+FLAG_LAND_PHONE = st.selectbox("Do you have land phone", options, format_func=lambda x: own_phone[x])
+
+# YEARS_EMPLOYED(21)
+YEARS_OF_EMPLOYMENT = st.number_input("Years of employment", value=0)
+
 # For CODE_GENDER(1)
 gen_display = ('Male', 'Female')
 options = list(range(len(gen_display)))
 gen = st.selectbox("Gender", options, format_func=lambda x: gen_display[x])
 
-
 # for FLAG_OWN_REALTY(2)
 own_realty = ('Yes', 'No')
 options = list(range(len(own_realty)))
 realty = st.selectbox("Do you own realty", options, format_func=lambda x: own_realty[x])
-
-# AMT_INCOME_TOTAL(3)
-AMT_INCOME_TOTAL = st.number_input("Applicant's Monthly Income($)", value=0)
 
 # INCOME_TYPE(4-7)
 income_type = ('Commercial associate', 'Pensioner', 'State servant', 'Student')
@@ -75,21 +88,6 @@ family = st.selectbox("Family Status", options, format_func=lambda x: family_sta
 housing_type = ('Share Apt.', 'House Apt.', 'Municipal Apt.', 'Office Apt.', 'Rented Apt.')
 options = list(range(len(housing_type)))
 housing = st.selectbox("Housing Type", options, format_func=lambda x: housing_type[x])
-
-
-# YEARS_EMPLOYED(21)
-YEARS_OF_EMPLOYMENT = st.number_input("Years of employment", value=0)
-
-
-# FLAG_WORK_PHONE(22)
-own_workphone = ('Yes', 'No')
-options = list(range(len(own_workphone)))
-FLAG_WORK_PHONE = st.selectbox("Do you have work phone", options, format_func=lambda x: own_workphone[x])
-
-# FLAG_PHONE(23)
-own_phone = ('Yes', 'No')
-options = list(range(len(own_phone)))
-FLAG_LAND_PHONE = st.selectbox("Do you have land phone", options, format_func=lambda x: own_phone[x])
 
 
 if st.button("Submit"):
