@@ -15,7 +15,7 @@ FLAG_WORK_PHONE	= 0
 FLAG_LAND_PHONE = 0
 YEARS_OF_EMPLOYMENT = 0
 CODE_GENDER_F = False
-FLAG_OWN_REALTY = False
+FLAG_OWN_REALTY_NO = False
 INCOME_TYPE_COMM_ASSOCIATE  = False
 INCOME_TYPE_PENSIONER = False
 INCOME_TYPE_STATE_SERVANT = False
@@ -64,7 +64,7 @@ gen_display = ('Male', 'Female')
 options = list(range(len(gen_display)))
 gen = st.selectbox("Gender", options, format_func=lambda x: gen_display[x])
 
-# for FLAG_OWN_REALTY(2)
+# for FLAG_OWN_REALTY_NO(2)
 own_realty = ('Yes', 'No')
 options = list(range(len(own_realty)))
 realty = st.selectbox("Do you own realty", options, format_func=lambda x: own_realty[x])
@@ -108,9 +108,9 @@ if st.button("Submit"):
        CODE_GENDER_F = True
 ####################################
     if(realty == 0):
-       FLAG_OWN_REALTY = True
+       FLAG_OWN_REALTY_NO = False
     else:
-       CODE_GENDER_F = False
+       FLAG_OWN_REALTY_NO = True
 ####################################
     if(income == 0):
        INCOME_TYPE_COMM_ASSOCIATE = True
@@ -152,7 +152,7 @@ if st.button("Submit"):
 
 
 
-    input_data =(AMT_INCOME_TOTAL, FLAG_WORK_PHONE, FLAG_LAND_PHONE, YEARS_OF_EMPLOYMENT, CODE_GENDER_F, FLAG_OWN_REALTY, INCOME_TYPE_COMM_ASSOCIATE, INCOME_TYPE_PENSIONER, INCOME_TYPE_STATE_SERVANT, INCOME_TYPE_STUDENT, EDUCATION_TYPE_HIGHER_EDU, EDUCATION_TYPE_ACADEMIC_DEGREE, EDUCATION_TYPE_INCOMPLETE_HIGHER_EDU, EDUCATION_TYPE_LOWER_SECONDARY, FAMILY_STATUS_CIVIL_MARRIAGE, FAMILY_STATUS_MARRIED, FAMILY_STATUS_SINGLE, FAMILY_STATUS_SEPARATED, HOUSING_TYPE_SHARE_APT, HOUSING_TYPE_HOUSE_APT, HOUSING_TYPE_MUNICIPAL_APT, HOUSING_TYPE_OFFICE_APT, HOUSING_TYPE_RENTED_APT)    
+    input_data =(AMT_INCOME_TOTAL, FLAG_WORK_PHONE, FLAG_LAND_PHONE, YEARS_OF_EMPLOYMENT, CODE_GENDER_F, FLAG_OWN_REALTY_NO, INCOME_TYPE_COMM_ASSOCIATE, INCOME_TYPE_PENSIONER, INCOME_TYPE_STATE_SERVANT, INCOME_TYPE_STUDENT, EDUCATION_TYPE_HIGHER_EDU, EDUCATION_TYPE_ACADEMIC_DEGREE, EDUCATION_TYPE_INCOMPLETE_HIGHER_EDU, EDUCATION_TYPE_LOWER_SECONDARY, FAMILY_STATUS_CIVIL_MARRIAGE, FAMILY_STATUS_MARRIED, FAMILY_STATUS_SINGLE, FAMILY_STATUS_SEPARATED, HOUSING_TYPE_SHARE_APT, HOUSING_TYPE_HOUSE_APT, HOUSING_TYPE_MUNICIPAL_APT, HOUSING_TYPE_OFFICE_APT, HOUSING_TYPE_RENTED_APT)    
     #input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     #input_data =(157500.0, 0, 1, 3, True, False, False, True, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     input_data_as_numpy_array = np.asarray(input_data)
