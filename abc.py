@@ -16,23 +16,23 @@ FLAG_LAND_PHONE = 0
 YEARS_OF_EMPLOYMENT = 0
 CODE_GENDER_F = False
 FLAG_OWN_REALTY = False
-NAME_INCOME_TYPE_COMM_ASSOCIATE  = False
-NAME_INCOME_TYPE_PENSIONER = False
-NAME_INCOME_TYPE_STATE_SERVANT = False
-NAME_INCOME_TYPE_STUDENT = False
-NAME_EDUCATION_TYPE_ACADEMIC_DEGREE = False
-NAME_EDUCATION_TYPE_HIGHER_EDU = False
-NAME_EDUCATION_TYPE_INCOMPLETE_HIGHER_EDU = False
-NAME_EDUCATION_TYPE_LOWER_SECONDARY = False
-NAME_FAMILY_STATUS_CIVIL_MARRIAGE = False
-NAME_FAMILY_STATUS_MARRIED = False
-NAME_FAMILY_STATUS_SEPARATED = False
-NAME_FAMILY_STATUS_SINGLE = False
-NAME_HOUSING_TYPE_SHARE_APT = False
-NAME_HOUSING_TYPE_HOUSE_APT = False
-NAME_HOUSING_TYPE_MUNICIPAL_APT = False
-NAME_HOUSING_TYPE_OFFICE_APT = False
-NAME_HOUSING_TYPE_RENTED_APT = False
+INCOME_TYPE_COMM_ASSOCIATE  = False
+INCOME_TYPE_PENSIONER = False
+INCOME_TYPE_STATE_SERVANT = False
+INCOME_TYPE_STUDENT = False
+EDUCATION_TYPE_HIGHER_EDU = False
+EDUCATION_TYPE_ACADEMIC_DEGREE = False
+EDUCATION_TYPE_INCOMPLETE_HIGHER_EDU = False
+EDUCATION_TYPE_LOWER_SECONDARY = False
+FAMILY_STATUS_CIVIL_MARRIAGE = False
+FAMILY_STATUS_MARRIED = False
+FAMILY_STATUS_SEPARATED = False
+FAMILY_STATUS_SINGLE = False
+HOUSING_TYPE_SHARE_APT = False
+HOUSING_TYPE_HOUSE_APT = False
+HOUSING_TYPE_MUNICIPAL_APT = False
+HOUSING_TYPE_OFFICE_APT = False
+HOUSING_TYPE_RENTED_APT = False
 
 approved_message = ", your Credit card application is approved"
 declined_message = ", your Credit card application not approved"
@@ -56,23 +56,24 @@ realty = st.selectbox("Do you own realty", options, format_func=lambda x: own_re
 # AMT_INCOME_TOTAL(3)
 AMT_INCOME_TOTAL = st.number_input("Applicant's Monthly Income($)", value=0)
 
-# NAME_INCOME_TYPE(4-7)
+# INCOME_TYPE(4-7)
 income_type = ('Commercial associate', 'Pensioner', 'State servant', 'Student')
 options = list(range(len(income_type)))
 income = st.selectbox("Type of Income", options, format_func=lambda x: income_type[x])
 
-# NAME_EDUCATION_TYPE(8-11)
-education_type = ('Higher education', 'Secondary / secondary special', 'Incomplete higher')
+# EDUCATION_TYPE(8-11)
+education_type = ('Higher education', 'Academic degree', 'Incomplete higher education','Lower secondary')
 options = list(range(len(education_type)))
 education = st.selectbox("Type of Education", options, format_func=lambda x: education_type[x])
 
-# NAME_FAMILY_STATUS(12-15)
-family_status = ('Civil marriage', 'Married', 'Single / not married', 'Separated', 'Widow')
+# FAMILY_STATUS(12-15)
+family_status = ('Civil marriage',
+, 'Single / not married', 'Separated', 'Widow')
 options = list(range(len(family_status)))
 family = st.selectbox("Family Status", options, format_func=lambda x: family_status[x])
 
-# NAME_HOUSING_TYPE(16-20)
-housing_type = ('Rented apartment', 'House / apartment', 'Municipal apartment')
+# HOUSING_TYPE(16-20)
+housing_type = ('Share Apt.', 'House Apt.', 'Municipal Apt.', 'Office Apt.', 'Rented Apt.')
 options = list(range(len(housing_type)))
 housing = st.selectbox("Housing Type", options, format_func=lambda x: housing_type[x])
 
@@ -115,14 +116,35 @@ if st.button("Submit"):
        CODE_GENDER_F = False
 ####################################
     if(income == 0):
-       NAME_INCOME_TYPE_COMM_ASSOCIATE = True
+       INCOME_TYPE_COMM_ASSOCIATE = True
     elif(income == 1):
-       NAME_INCOME_TYPE_PENSIONER = True
+       INCOME_TYPE_PENSIONER = True
     elif(income == 2):
-       NAME_INCOME_TYPE_STATE_SERVANT = True
+       INCOME_TYPE_STATE_SERVANT = True
     else:
-       NAME_INCOME_TYPE_STUDENT = True
+       INCOME_TYPE_STUDENT = True
 ####################################
+    if(education == 0):
+       EDUCATION_TYPE_HIGHER_EDU = True
+    elif(education == 1):
+       EDUCATION_TYPE_ACADEMIC_DEGREE = True
+    elif(education == 2):
+       EDUCATION_TYPE_INCOMPLETE_HIGHER_EDU = True
+    else:
+       EDUCATION_TYPE_LOWER_SECONDARY = True
+####################################
+    if(housing == 0):
+       HOUSING_TYPE_SHARE_APT = True
+    elif(housing == 1):
+       HOUSING_TYPE_HOUSE_APT = True
+    elif(housing == 2):
+       HOUSING_TYPE_MUNICIPAL_APT = True
+    elif(housing == 3):
+       HOUSING_TYPE_OFFICE_APT = True
+    else:
+       HOUSING_TYPE_RENTED_APT = True
+
+
     
     #input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     input_data =(157500.0, 0, 1, 3, True, False, False, True, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
@@ -135,10 +157,10 @@ if st.button("Submit"):
     else:
       st.success(full_name+declined_message)
 
-    st.success(NAME_INCOME_TYPE_COMM_ASSOCIATE)
-    st.success(NAME_INCOME_TYPE_PENSIONER)
-    st.success(NAME_INCOME_TYPE_STATE_SERVANT)
-    st.success(NAME_INCOME_TYPE_STUDENT)
+    st.success(INCOME_TYPE_COMM_ASSOCIATE)
+    st.success(INCOME_TYPE_PENSIONER)
+    st.success(INCOME_TYPE_STATE_SERVANT)
+    st.success(INCOME_TYPE_STUDENT)
 
    
 run()
