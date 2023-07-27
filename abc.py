@@ -166,10 +166,5 @@ if st.button("Submit"):
     else:
       st.success(full_name+declined_message)
 
-    st.success(INCOME_TYPE_COMM_ASSOCIATE)
-    st.success(INCOME_TYPE_PENSIONER)
-    st.success(INCOME_TYPE_STATE_SERVANT)
-    st.success(INCOME_TYPE_STUDENT)
-
    
 run()
