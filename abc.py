@@ -67,8 +67,7 @@ options = list(range(len(education_type)))
 education = st.selectbox("Type of Education", options, format_func=lambda x: education_type[x])
 
 # FAMILY_STATUS(12-15)
-family_status = ('Civil marriage',
-, 'Single / not married', 'Separated', 'Widow')
+family_status = ('Civil marriage', 'Single / not married', 'Separated', 'Widow')
 options = list(range(len(family_status)))
 family = st.selectbox("Family Status", options, format_func=lambda x: family_status[x])
 
