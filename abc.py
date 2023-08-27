@@ -39,7 +39,6 @@ approved_message = ", your Credit card application is approved"
 declined_message = ", your Credit card application not approved"
 loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
-
 # Full Name
 full_name = st.text_input('Full Name')
 
