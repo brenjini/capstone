@@ -3,11 +3,12 @@ import streamlit as st
 from PIL import Image
 import pickle
 
+loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 def run():
     img1 = Image.open('images.jpg')
     st.image(img1, use_column_width=False)
-    st.title("Credit card Prediction using Machine Learning")
+    st.title("Credit Card Approval Prediction using Machine Learning")
 
 #declaring all variables
 AMT_INCOME_TOTAL = 0
@@ -164,5 +165,4 @@ if st.button("Submit"):
     else:
       st.success(full_name+declined_message)
 
-   
 run()
