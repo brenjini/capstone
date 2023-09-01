@@ -6,12 +6,10 @@ import pickle
 loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 def run():
+    st.title("Credit Card Approval Prediction using Machine Learning")
     img1 = Image.open('images.jpg')
     st.image(img1, use_column_width=False)
-    st.title("Credit Card Approval Prediction using Machine Learning")
-
-
-
+    
 # declaring all variables
 
 AMT_INCOME_TOTAL = 0
@@ -154,7 +152,6 @@ if st.button("Submit"):
        HOUSING_TYPE_RENTED_APT = True
 
 
-
     input_data =(AMT_INCOME_TOTAL, FLAG_WORK_PHONE, FLAG_LAND_PHONE, YEARS_OF_EMPLOYMENT, CODE_GENDER_F, FLAG_OWN_REALTY_NO, INCOME_TYPE_COMM_ASSOCIATE, INCOME_TYPE_PENSIONER, INCOME_TYPE_STATE_SERVANT, INCOME_TYPE_STUDENT, EDUCATION_TYPE_HIGHER_EDU, EDUCATION_TYPE_ACADEMIC_DEGREE, EDUCATION_TYPE_INCOMPLETE_HIGHER_EDU, EDUCATION_TYPE_LOWER_SECONDARY, FAMILY_STATUS_CIVIL_MARRIAGE, FAMILY_STATUS_MARRIED, FAMILY_STATUS_SINGLE, FAMILY_STATUS_SEPARATED, HOUSING_TYPE_SHARE_APT, HOUSING_TYPE_HOUSE_APT, HOUSING_TYPE_MUNICIPAL_APT, HOUSING_TYPE_OFFICE_APT, HOUSING_TYPE_RENTED_APT)
     #input_data =(315000.0, 0, 0, 2, True, False, True, False, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
     #input_data =(157500.0, 0, 1, 3, True, False, False, True, False, False, False, True, False, False, False, True, False, False, False, True, False, False, False)
@@ -166,7 +163,5 @@ if st.button("Submit"):
       st.success(full_name+approved_message)
     else:
       st.success(full_name+declined_message)
-
-
 
 run()
